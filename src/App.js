@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import DoctorsTable from './components/DoctorsTable';
+import ItemTable from './components/ItemTable';
+import { getWorkers, getWorkTime } from './redux/actions/workersActions';
+import './App.css'
 
-function App() {
+const App = () => {
+  const { employees, worklog } = useSelector((state) => state.workers);
+  const dispatch = useDispatch();
+  
+  useEffect(() => {
+    dispatch(getWorkers());
+    dispatch(getWorkTime());
+  }, [dispatch]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <DoctorsTable employees={employees} />
+      <ItemTable />
+    </>
   );
-}
+};
 
 export default App;
