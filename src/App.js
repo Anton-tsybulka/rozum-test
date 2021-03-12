@@ -7,7 +7,7 @@ import { getWorkers, getWorkTime } from './redux/actions/workersActions';
 import './App.css'
 
 const App = () => {
-  const { employees, worklog } = useSelector((state) => state.workers);
+  const { employees, worklog, loading } = useSelector((state) => state.workers);
   const dispatch = useDispatch();
   
   useEffect(() => {
@@ -23,7 +23,10 @@ const App = () => {
   })
   return (
     <>
-      <Route path='/' component={() => <DoctorsTable employees={employees} />} exact/>
+      {
+        loading ? 
+        <p style={{textAlign: 'center', marginTop: '20em'}}>loading...</p> :
+        <Route path='/' component={() => <DoctorsTable employees={employees} />} exact/>}
       {renderItemTable}
     </>
   );
