@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const ItemTable = ({ filterById }) => {
   const renderItem = filterById.map(({employee_id, from, to, id}) => {
     return(
-      <tr kye={id}>
+      <tr key={id}>
         <td>{employee_id}</td>
         <td>{from}</td>
         <td>{to}</td>
@@ -25,7 +25,7 @@ const ItemTable = ({ filterById }) => {
           {renderItem}
         </tbody>
       </table>
-      <button><Link to='/'>Назад</Link></button>
+      <button style={{marginTop: '1em', marginLeft: '2em'}}><Link to='/' style={{textDecoration: 'none'}}>Назад</Link></button>
     </div> 
   );
 }

@@ -8,7 +8,7 @@ const DoctorsTable = ({ employees }) => {
       <tr key={id}>
         <td>{id}</td>
         <td>
-          <Link to={`${id}`}>{lastName} {firstName} {middleName}</Link>          
+          <Link to={`${id}`} style={{textDecoration: 'none'}}>{lastName} {firstName} {middleName}</Link>          
         </td>
         <td>{birthChange(birthDate)}</td>
       </tr>
