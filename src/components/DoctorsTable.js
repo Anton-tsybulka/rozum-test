@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { birthChange } from '../helpers/helpers';
 
 const DoctorsTable = ({ employees }) => {
@@ -6,7 +7,9 @@ const DoctorsTable = ({ employees }) => {
     return (
       <tr key={id}>
         <td>{id}</td>
-        <td>{lastName} {firstName} {middleName}</td>
+        <td>
+          <Link to={`${id}`}>{lastName} {firstName} {middleName}</Link>          
+        </td>
         <td>{birthChange(birthDate)}</td>
       </tr>
     )
@@ -23,7 +26,7 @@ const DoctorsTable = ({ employees }) => {
           </tr>
         </thead>
         <tbody>
-          {renderItem}
+            {renderItem}
         </tbody>
       </table>
     </div>    
