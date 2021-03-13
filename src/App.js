@@ -14,20 +14,17 @@ const App = () => {
     dispatch(getWorkers());
     dispatch(getWorkTime());
   }, [dispatch]);
-
-  const renderItemTable = worklog.map(({id}) => {
-    const filterById = worklog.filter(({employee_id}) => employee_id === id)
-    return (
-      <Route path={`/${id}`} component={() => <ItemTable filterById={filterById} />} key={id} />
-    )
-  })
+ 
   return (
+    loading ? 
+    <p style={{textAlign: 'center', marginTop: '20em'}}>loading...</p> :
     <>
-      {
-        loading ? 
-        <p style={{textAlign: 'center', marginTop: '20em'}}>loading...</p> :
-        <Route path='/' component={() => <DoctorsTable employees={employees} />} exact/>}
-      {renderItemTable}
+      <Route path='/' component={() => <DoctorsTable employees={employees} />} exact/>
+      <Route path='/:id'
+        render={({match}) => {
+          const {id} = match.params;
+        return <ItemTable worklog={worklog} id={id} />
+        }} />
     </>
   );
 };

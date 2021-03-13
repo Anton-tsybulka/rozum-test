@@ -1,7 +1,4 @@
-const birthChange = (str) => {
-    const newDate = str.split('-').reverse().join('.');
-    return newDate;
-}
+const birthChange = (str) => str.split('-').reverse().join('.');
 
 const lastNameSort = (arr) => {
     const lastnameSort = [];
