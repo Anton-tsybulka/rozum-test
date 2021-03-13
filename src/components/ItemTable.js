@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 const ItemTable = ({ worklog, id }) => {
     const renderItem = 
-        worklog &&
-        worklog.length !== 0 &&
-        worklog.filter(({employee_id}) => employee_id === id)
+    worklog &&
+    worklog.length !== 0 &&
+    worklog.filter(({employee_id}) => employee_id == id)
             .map(({employee_id, from, to, id}) => {
                 return(
                   <tr key={id}>
