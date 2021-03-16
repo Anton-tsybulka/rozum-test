@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Route } from 'react-router';
 import DoctorsTable from './components/DoctorsTable';
 import ItemTable from './components/ItemTable';
-import { getWorkers, getWorkTime } from './redux/actions/workersActions';
+import { getWorkersThunk, getTimeThunk } from './redux/thunk/workersThunk';
 import './App.css'
 
 const App = () => {
@@ -11,9 +11,9 @@ const App = () => {
   const dispatch = useDispatch();
   
   useEffect(() => {
-    dispatch(getWorkers());
-    dispatch(getWorkTime());
-  }, [dispatch]);
+    dispatch(getWorkersThunk());
+    dispatch(getTimeThunk());
+  },[dispatch]);
  
   return (
     loading ? 

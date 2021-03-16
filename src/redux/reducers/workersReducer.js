@@ -43,4 +43,4 @@ export default function workersReducer(state = initialState, action) {
         default:
             return state;
     }    
-}
+};
