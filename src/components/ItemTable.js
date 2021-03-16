@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { careImpaired } from '../helpers/helpers';
 
 const ItemTable = ({ worklog, id }) => {
     const renderItem = 
@@ -11,7 +12,7 @@ const ItemTable = ({ worklog, id }) => {
                   <tr key={id}>
                     <td>{employee_id}</td>
                     <td>{from}</td>
-                    <td>{to}</td>
+                    <td style={careImpaired(worklog, id)}>{to}</td>
                   </tr>
                 )
               });
