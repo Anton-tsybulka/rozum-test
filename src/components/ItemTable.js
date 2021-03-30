@@ -6,7 +6,7 @@ const ItemTable = ({ worklog, id }) => {
     const renderItem = 
     worklog &&
     worklog.length !== 0 &&
-    worklog.filter(({employee_id}) => employee_id == id)
+    worklog.filter(({employee_id}) => employee_id === +id)
             .map(({employee_id, from, to, id}) => {
                 return(
                   <tr key={id}>
@@ -28,12 +28,14 @@ const ItemTable = ({ worklog, id }) => {
                 </tr>
                 </thead>
                 <tbody>
-                {renderItem}
+                    {renderItem}
                 </tbody>
             </table>
-            <button style={{marginTop: '1em', marginLeft: '2em'}}><Link to='/' style={{textDecoration: 'none'}}>Назад</Link></button>
+            <button style={{marginTop: '1em', marginLeft: '2em'}}>
+                <Link to='/' style={{textDecoration: 'none'}}>Назад</Link>
+            </button>
         </div> 
     );
-}
+};
 
 export default ItemTable;

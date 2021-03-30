@@ -7,7 +7,6 @@ import {
 } from '../actions/workersActions';
 import { getEmployees, getWorklog } from '../../api';
 
-
 export const getWorkersThunk = (data) => {
     return (dispatch) => { 
         dispatch(getWorkers(data));
