@@ -5,7 +5,7 @@ import {
     getWorkTimeSuccess,
     workersFailed,
 } from '../actions/workersActions';
-import { getEmployees, getWorklog } from '../../api';
+import { getEmployees, getWorklog } from '../../api/api';
 
 export const getWorkersThunk = (data) => {
     return (dispatch) => { 
